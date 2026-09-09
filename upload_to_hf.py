@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 Upload trained Tamazight LLM to Hugging Face Hub
-Usage:
-    python3 upload_to_hf.py --repo-id "YOUR_USERNAME/tamazight-smollm-135m" --token "hf_..."
+    python3 upload_to_hf.py --repo-id "YOUR_USERNAME/tamazight-qwen-0.5b" --token "hf_..."
 """
 
 import os
@@ -13,35 +12,35 @@ MODEL_CARD_TEMPLATE = """---
 language:
 - ber
 - kab
+- ar
+- fr
+- en
 license: apache-2.0
 tags:
 - tamazight
 - berber
 - kabyle
-- latin-script
-- llm
-- smollm2
+- arabic
+- french
+- english
+- multilingual
+- qwen2.5
 - text-generation
 - termux
 - codespaces
-datasets:
-- Sifal/Kabyle-French
-- Sifal/KabyleWikipedia
-- Tamazight-NLP/AmaWar
 pipeline_tag: text-generation
-base_model: HuggingFaceTB/SmolLM2-135M-Instruct
+base_model: Qwen/Qwen2.5-0.5B-Instruct
 ---
 
-# Tamazight (Berber) SmolLM2-135M ⵣ
+# Tamazight Multilingual LLM (Qwen2.5-0.5B) ⵣ
 
-An efficient open-source Language Model fine-tuned on **Tamazight (Kabyle/Berber)** written in the standard **Latin alphabet (Agemmay Alatini)**.
+A fluent 4-language conversational AI assistant fine-tuned on **Tamazight (Kabyle/Berber Latin)**, **Arabic**, **French**, and **English**.
 
-Based on `HuggingFaceTB/SmolLM2-135M-Instruct`, optimized for high-speed inference on mobile devices (Termux/Android) and edge environments.
+Based on `Qwen/Qwen2.5-0.5B-Instruct`, optimized for high-speed edge and mobile inference (Termux/Android via GGUF).
 
 ## Model Highlights
-- **Architecture**: SmolLM2 (Llama-based autoregressive transformer)
-- **Parameters**: 135 Million parameters
-- **Target Language**: Tamazight / Taqbaylit (Latin script)
+- **Base Architecture**: Qwen2.5 (0.5B parameters)
+- **Languages Supported**: Tamazight (Latin script), Arabic (العربية), French (Français), English
 - **Training Data**:
   - Kabyle-French parallel translation corpus (~115,000 sentence pairs)
   - Kabyle Wikipedia articles (over 8,800 texts)
@@ -71,9 +70,9 @@ This model is lightweight enough to run locally inside **Termux** on Android usi
 
 def main():
     parser = argparse.ArgumentParser(description="Upload Tamazight LLM to Hugging Face")
-    default_dir = "tamazight-smollm-135m-final" if os.path.exists("tamazight-smollm-135m-final") else "tamazight-smollm-135m"
+    default_dir = "tamazight-qwen-0.5b-final" if os.path.exists("tamazight-qwen-0.5b-final") else "tamazight-multilingual-llm-final"
     parser.add_argument("--model-dir", type=str, default=default_dir, help=f"Path to model directory (default: {default_dir})")
-    parser.add_argument("--repo-id", type=str, required=True, help="HF repository ID (e.g. username/tamazight-smollm-135m)")
+    parser.add_argument("--repo-id", type=str, required=True, help="HF repository ID (e.g. username/tamazight-qwen-0.5b)")
     parser.add_argument("--token", type=str, default=os.getenv("HF_TOKEN"), help="Hugging Face write token")
     parser.add_argument("--private", action="store_true", help="Create private repository")
     args = parser.parse_args()

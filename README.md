@@ -1,15 +1,15 @@
-# Tamazight Multilingual LLM (Tamaziɣt · العربية · Français · English) ⵣ
+# Tamazight Multilingual LLM (Qwen2.5-0.5B) ⵣ
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/zakmijo2-dotcom/tamazight-llm)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-نموذج ذكاء اصطناعي محادثي حقيقي متعدد اللغات (Multilingual Conversational LLM) يتقن التحاور والإجابة بطبيعية بأربع لغات رئيسية:
+نموذج ذكاء اصطناعي محادثي حقيقي متعدد اللغات (Multilingual Conversational LLM) مبني على معمارية **`Qwen/Qwen2.5-0.5B-Instruct`** (490 مليون معامل). يتقن التحاور والإجابة بطلاقة بأربع لغات رئيسية:
 - **الأمازيغية بالحرف اللاتيني (Tamaziɣt s ugemmay alatini)**
 - **العربية الفصحى (العربية)**
 - **الفرنسية (Français)**
 - **الإنجليزية (English)**
 
-مصمم ليعمل بسرعة عالية على الأجهزة المحمولة عبر **Termux** بصيغة GGUF، وعلى معالجات **Codespaces** وكروت الشاشة المجانية في **Google Colab**.
+مصمم ليعمل بسرعة فائقة على الهواتف والأجهزة الذكية عبر **Termux** (أقل من 350MB في صيغة GGUF Q4_K_M)، وعلى معالجات **Codespaces** وكروت الشاشة المجانية في **Google Colab**.
 
 ## 🚀 البدء السريع (Quickstart)
 
@@ -42,21 +42,21 @@ python3 train.py --max-samples 500 --epochs 1 --batch-size 4
 
 ### 4. تقييم أداء النموذج (Evaluation & Benchmarks)
 ```bash
-python3 evaluate.py --model-path tamazight-smollm-135m-final
+python3 evaluate.py --model-path tamazight-qwen-0.5b-final
 ```
 يقوم بحساب:
-- الحيرة اللغوية (Perplexity - PPL) على نصوص أمازيغية لم يرها النموذج.
-- دقة الترجمة على حزمة اختبار قياسية (French -> Tamazight).
-- جودة المحادثة والأمثال الثقافية.
+- الحيرة اللغوية (Perplexity - PPL) على نصوص اختبار مستقلة.
+- اختبار الطلاقة اللغوية عبر اللغات الأربع (Tamazight, Arabic, French, English).
+- دقة الإجابة في الثقافة والتاريخ الأمازيغي والترجمة.
 
 ### 5. تصدير النموذج للهواتف بصيغة GGUF (Mobile Export)
 ```bash
-python3 export_gguf.py --model-dir tamazight-smollm-135m-final --outtype f16
+python3 export_gguf.py --model-dir tamazight-qwen-0.5b-final --outtype f16
 ```
 
 ### 6. الرفع على Hugging Face Hub
 ```bash
-python3 upload_to_hf.py --repo-id "YOUR_USERNAME/tamazight-smollm-135m" --token "hf_YOUR_TOKEN"
+python3 upload_to_hf.py --repo-id "YOUR_USERNAME/tamazight-qwen-0.5b" --token "hf_YOUR_TOKEN"
 ```
 ---
 
@@ -76,33 +76,35 @@ python3 upload_to_hf.py --repo-id "YOUR_USERNAME/tamazight-smollm-135m" --token 
 ```text
 ├── .devcontainer/
 │   └── devcontainer.json        # تهيئة بيئة Codespaces السحابية
-├── data/                        # البيانات المعجمية الأصلية
+├── data/
+│   ├── multilingual_chat.jsonl  # قاعدة بيانات المحادثة المتوازنة بـ 4 لغات
 │   ├── kabyle_french.tsv        # الجمل المترجمة الأصلية
 │   ├── proverbs.tsv             # الأمثال الأمازيغية
 │   ├── idioms.tsv               # التعابير
 │   ├── riddles.tsv              # الألغاز
 │   └── examples.tsv             # الأمثلة السياقية
-├── tamazight_train.jsonl        # ملف التدريب المجهز الكامل (126,929 سطر)
-├── train.py                     # سكربت التدريب الشامل والمتقدم
-├── train_codespaces.py          # خط تدريب Codespaces والحوسبة السحابية
-├── infer.py                     # واجهة المحادثة والاستدلال والترجمة
-├── chat.py                      # اختصار لتشغيل المحادثة التفاعلية
-├── evaluate.py                  # حزمة تقييم الحيرة اللغوية والترجمة (Benchmarking)
-├── export_gguf.py               # تحويل النموذج إلى صيغة GGUF لتشغيله على الهواتف
+├── tamazight_train.jsonl        # ملف التدريب الشامل (126,929 سطر)
+├── train.py                     # سكربت التدريب الشامل (يدعم Qwen2.5-0.5B و SmolLM2)
+├── train_codespaces.py          # خط تدريب Codespaces بأنماط cpu-fast و gpu-full
+├── build_multilingual_corpus.py # مولد بيانات المحادثة المتوازنة بالأربع لغات
+├── infer.py                     # واجهة المحادثة التفاعلية والاستدلال المباشر
+├── chat.py                      # اختصار لتشغيل المحادثة التفاعلية بالطرفية
+├── evaluate.py                  # حزمة التقييم المعياري للغات الأربع
+├── export_gguf.py               # تصدير النموذج إلى صيغة GGUF للهواتف
 ├── upload_to_hf.py              # سكربت الرفع التلقائي على Hugging Face
+├── Tamazight_LLM_Colab.ipynb    # مفكرة التدريب السحابي السريع على GPU مجاني
 ├── requirements.txt             # متطلبات بايثون
 └── README.md                    # دليل الاستخدام الشامل
 ```
-
 ---
 
 ## 📱 تشغيل النموذج في Termux (Android)
 
-النموذج مبني على معمارية `SmolLM2-135M` ليعمل بأقل استهلاك لذاكرة الوصول العشوائي (أقل من 150MB في صيغة GGUF Q4_K_M) وبسرعة تفوق 40 كلمة في الثانية على هواتف أندرويد عبر `llama.cpp`:
+النموذج مبني على معمارية `Qwen2.5-0.5B` ليعمل بأقل استهلاك لذاكرة الوصول العشوائي (أقل من 350MB في صيغة GGUF Q4_K_M) وبسرعة تفوق 40 كلمة في الثانية على هواتف أندرويد عبر `llama.cpp`:
 
 ```bash
 # تشغيل الاستدلال السريع في Termux
-llama-cli -m SmolLM2-135M-Instruct-Q4_K_M.gguf -p "Azul fell-awen! Amek telliḍ?" -n 50 --temp 0.7
+llama-cli -m tamazight-qwen-0.5b-Q4_K_M.gguf -p "<|im_start|>user\nAzul fell-awen! Amek telliḍ?<|im_end|>\n<|im_start|>assistant\n" -n 50 --temp 0.7
 ```
 
 ---

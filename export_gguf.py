@@ -16,8 +16,9 @@ CONVERTER_URL = "https://raw.githubusercontent.com/ggerganov/llama.cpp/master/co
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Export Tamazight LLM to GGUF format")
-    parser.add_argument("--model-dir", type=str, default="tamazight-smollm-135m-final", help="Path to fine-tuned model directory")
-    parser.add_argument("--output-file", type=str, default=None, help="Output GGUF file path (default: tamazight-smollm-135m-{outtype}.gguf)")
+    default_dir = "tamazight-qwen-0.5b-final" if os.path.exists("tamazight-qwen-0.5b-final") else "tamazight-multilingual-llm-final"
+    parser.add_argument("--model-dir", type=str, default=default_dir, help=f"Path to fine-tuned model directory (default: {default_dir})")
+    parser.add_argument("--output-file", type=str, default=None, help="Output GGUF file path (default: tamazight-qwen-0.5b-{outtype}.gguf)")
     parser.add_argument("--outtype", type=str, default="f16", choices=["f16", "bf16", "q8_0"], help="Output weight precision type")
     return parser.parse_args()
 
@@ -61,7 +62,7 @@ def main():
         print("Please train the model first using: python3 train.py")
         sys.exit(1)
 
-    out_file = args.output_file or f"tamazight-smollm-135m-{args.outtype}.gguf"
+    out_file = args.output_file or f"tamazight-qwen-0.5b-{args.outtype}.gguf"
     converter_path = ensure_converter()
 
     print("=" * 60)
@@ -100,10 +101,10 @@ def main():
         print("1. Install llama.cpp in Termux:")
         print("   pkg install clang cmake git")
         print("   git clone https://github.com/ggerganov/llama.cpp && cd llama.cpp && cmake -B build && cmake --build build")
-        print("\n2. Quantize to Q4_K_M (ultra-fast, < 100MB RAM):")
-        print(f"   ./build/bin/llama-quantize {out_file} tamazight-smollm-135m-Q4_K_M.gguf Q4_K_M")
+        print("\n2. Quantize to Q4_K_M (ultra-fast, < 350MB RAM):")
+        print(f"   ./build/bin/llama-quantize {out_file} tamazight-qwen-0.5b-Q4_K_M.gguf Q4_K_M")
         print("\n3. Run inference:")
-        print("   ./build/bin/llama-cli -m tamazight-smollm-135m-Q4_K_M.gguf \\")
+        print("   ./build/bin/llama-cli -m tamazight-qwen-0.5b-Q4_K_M.gguf \\")
         print('     -p "<|im_start|>user\\nAzul fell-awen! Amek telliḍ?<|im_end|>\\n<|im_start|>assistant\\n" \\')
         print("     -n 50 --temp 0.7")
         print("=" * 60)

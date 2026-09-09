@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Tamazight (Berber) LLM Training Pipeline
+Tamazight & Multilingual LLM Training Pipeline
 Optimized for GitHub Codespaces, Cloud GPUs, and local workstations.
-Base Model: HuggingFaceTB/SmolLM2-135M-Instruct
+Base Model: Qwen/Qwen2.5-0.5B-Instruct
 """
 
 import os
@@ -30,7 +30,7 @@ def parse_args():
     parser.add_argument("--base-model", type=str, default="Qwen/Qwen2.5-0.5B-Instruct", help="Base model ID (e.g. Qwen/Qwen2.5-0.5B-Instruct or HuggingFaceTB/SmolLM2-135M-Instruct)")
     default_data = "data/multilingual_chat.jsonl" if os.path.exists("data/multilingual_chat.jsonl") else "tamazight_train.jsonl"
     parser.add_argument("--data-file", type=str, default=default_data, help=f"Path to jsonl training corpus (default: {default_data})")
-    parser.add_argument("--output-dir", type=str, default="tamazight-multilingual-llm-final", help="Final model output directory")
+    parser.add_argument("--output-dir", type=str, default="tamazight-qwen-0.5b-final", help="Final model output directory")
     parser.add_argument("--adapter-dir", type=str, default=None, help="Optional directory to save LoRA adapter separately")
     parser.add_argument("--epochs", type=int, default=None, help="Number of training epochs")
     parser.add_argument("--batch-size", type=int, default=None, help="Batch size per device")

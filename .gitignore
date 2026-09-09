@@ -23,8 +23,11 @@ dist/
 build/
 
 # Checkpoints
-tamazight-smollm-135m/
-tamazight_smollm_finetuned/
+tamazight-qwen*/
+tamazight_qwen*/
+tamazight-smollm*/
+tamazight_smollm*/
+tamazight-multilingual*/
 output/
 checkpoint-*/
 runs/

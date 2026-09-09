@@ -36,7 +36,7 @@ MULTILINGUAL_BENCHMARK = [
 ]
 def parse_args():
     parser = argparse.ArgumentParser(description="Evaluate Tamazight LLM")
-    default_target = "tamazight-multilingual-llm-final" if os.path.exists("tamazight-multilingual-llm-final") else "Qwen/Qwen2.5-0.5B-Instruct"
+    default_target = "tamazight-qwen-0.5b-final" if os.path.exists("tamazight-qwen-0.5b-final") else "Qwen/Qwen2.5-0.5B-Instruct"
     parser.add_argument("--model-path", type=str, default=default_target, help=f"Path to model or HF repo (default: {default_target})")
     default_data = "data/multilingual_chat.jsonl" if os.path.exists("data/multilingual_chat.jsonl") else "tamazight_train.jsonl"
     parser.add_argument("--data-file", type=str, default=default_data, help=f"Path to evaluation corpus (default: {default_data})")

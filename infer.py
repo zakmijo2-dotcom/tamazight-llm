@@ -2,7 +2,7 @@
 """
 Tamazight (Berber) LLM Inference & Interactive Chat
 Supports: Interactive Chat, Single Prompt Generation, Translation CLI
-Base / Fine-tuned: SmolLM2-135M
+Base / Fine-tuned: Qwen2.5-0.5B
 """
 
 import os
@@ -12,7 +12,7 @@ import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, TextIteratorStreamer
 from threading import Thread
 
-DEFAULT_CHECKPOINTS = ["tamazight-multilingual-llm-final", "tamazight-smollm-135m-final"]
+DEFAULT_CHECKPOINTS = ["tamazight-qwen-0.5b-final", "tamazight-multilingual-llm-final"]
 DEFAULT_BASE = "Qwen/Qwen2.5-0.5B-Instruct"
 FALLBACK_BASE = "HuggingFaceTB/SmolLM2-135M-Instruct"
 
@@ -140,7 +140,7 @@ def interactive_chat(model, tokenizer, device, temperature=0.7, top_p=0.9, max_t
             repetition_penalty=repetition_penalty
         )
 
-        print(f"\nSmolLM (Tamazight) > {response}\n")
+        print(f"\nQwen (Tamazight) > {response}\n")
         history += f"<|im_start|>user\n{user_input}<|im_end|>\n<|im_start|>assistant\n{response}<|im_end|>\n"
         if len(history) > 1500:
             history = history[-1000:]
