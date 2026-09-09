@@ -8,7 +8,7 @@ from src.config import load_config, get_device, get_torch_dtype
 
 def test_load_default_config():
     cfg = load_config()
-    assert cfg.model.name == "Qwen/Qwen2.5-0.5B-Instruct"
+    assert cfg.model.name == "Qwen/Qwen2.5-1.5B-Instruct"
     assert "q_proj" in cfg.lora.target_modules
     assert cfg.training.epochs >= 1
     assert cfg.training.seed == 42

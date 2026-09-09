@@ -1,5 +1,10 @@
-{"id": "en_1", "task": "conversation", "prompt": "Hello! How are you doing today?", "reference": "Hello! I am doing well, thank you.", "keywords": ["hello", "well", "doing", "help"]}
-{"id": "en_2", "task": "knowledge", "prompt": "What is the capital city of Canada?", "reference": "The capital city of Canada is Ottawa.", "keywords": ["ottawa"]}
-{"id": "en_3", "task": "grammar", "prompt": "What is the past tense of the irregular verb 'to write'?", "reference": "The past tense of write is wrote.", "keywords": ["wrote"]}
-{"id": "en_4", "task": "vocabulary", "prompt": "What is an antonym for the word 'ancient'?", "reference": "An antonym for ancient is modern or new.", "keywords": ["modern", "new", "recent"]}
-{"id": "en_5", "task": "reasoning", "prompt": "If a triangle has two equal sides, what type of triangle is it called?", "reference": "It is called an isosceles triangle.", "keywords": ["isosceles"]}
+{"id": "en_01", "task": "conversation", "prompt": "Hello! How are you doing today?", "reference": "Hello! I am doing well, thank you.", "keywords": ["hello", "well", "doing", "help"]}
+{"id": "en_02", "task": "knowledge", "prompt": "What is the capital city of Canada?", "reference": "The capital city of Canada is Ottawa.", "keywords": ["ottawa"]}
+{"id": "en_03", "task": "grammar", "prompt": "What is the past tense of the irregular verb 'to write'?", "reference": "The past tense of write is wrote.", "keywords": ["wrote"]}
+{"id": "en_04", "task": "vocabulary", "prompt": "What is an antonym for the word 'ancient'?", "reference": "An antonym for ancient is modern or new.", "keywords": ["modern", "new", "recent"]}
+{"id": "en_05", "task": "reasoning", "prompt": "If a triangle has two equal sides, what type of triangle is it called?", "reference": "It is called an isosceles triangle.", "keywords": ["isosceles"]}
+{"id": "en_06", "task": "culture", "prompt": "What is the meaning of the word 'Imazighen' in the Berber language?", "reference": "Imazighen means 'free people' or 'noble men'.", "keywords": ["free", "noble", "people", "men"]}
+{"id": "en_07", "task": "history", "prompt": "Who was King Massinissa?", "reference": "King Massinissa was the founder and first king of the unified Kingdom of Numidia.", "keywords": ["massinissa", "numidia", "king"]}
+{"id": "en_08", "task": "science", "prompt": "What force pulls objects toward the center of the Earth?", "reference": "Gravity is the force that pulls objects toward Earth.", "keywords": ["gravity", "gravitational"]}
+{"id": "en_09", "task": "summarization", "prompt": "Summarize this statement in one short sentence: 'The Mediterranean climate of Kabylie provides ideal conditions for olive groves, which have been cultivated for thousands of years.'", "reference": "Kabylie's Mediterranean climate has enabled olive farming for millennia.", "keywords": ["olive", "kabylie", "climate", "cultivated"]}
+{"id": "en_10", "task": "translation", "prompt": "How do you translate the Amazigh greeting 'Azul' into English?", "reference": "'Azul' translates to 'Hello' or 'Greetings' in English.", "keywords": ["hello", "greetings", "hi"]}

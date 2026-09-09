@@ -17,11 +17,11 @@ DEFAULT_CONFIG_PATH = os.path.join(
 
 @dataclass
 class ModelSettings:
-    name: str = "Qwen/Qwen2.5-0.5B-Instruct"
-    tokenizer_name: str = "Qwen/Qwen2.5-0.5B-Instruct"
+    name: str = "Qwen/Qwen2.5-1.5B-Instruct"
+    tokenizer_name: str = "Qwen/Qwen2.5-1.5B-Instruct"
     torch_dtype: str = "auto"
-    output_dir: str = "tamazight-qwen-0.5b-final"
-    adapter_dir: str = "tamazight-qwen-0.5b-lora"
+    output_dir: str = "tamazight-kabyle-qwen-1.5b-final"
+    adapter_dir: str = "tamazight-kabyle-qwen-1.5b-lora"
 
 @dataclass
 class LoraSettings:
@@ -126,7 +126,7 @@ def get_torch_dtype(device: str, requested: str = "auto") -> torch.dtype:
 
     if device == "cuda":
         return torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
-    return torch.float32
+    return torch.bfloat16
 
 def load_config(config_path: Optional[str] = None) -> AppConfig:
     """Loads configuration YAML file into an AppConfig instance."""

@@ -4,10 +4,10 @@
 The **Tamazight Multilingual Chat Corpus** is an open curated conversational and instruction-tuning dataset designed to train lightweight multilingual language models capable of conversing naturally across **Tamazight (Kabyle Latin)**, **Arabic**, **French**, and **English**.
 
 ## Dataset Structure
-- `data/train.jsonl`: 3,147 clean, deduplicated training examples.
-- `data/validation.jsonl`: 174 validation examples.
-- `data/test.jsonl`: 174 held-out evaluation examples.
-- `data/processed/full_dataset.jsonl`: 3,495 consolidated records.
+- `data/train.jsonl`: 7,731 clean, deduplicated instruction examples.
+- `data/validation.jsonl`: 429 validation examples.
+- `data/test.jsonl`: 429 held-out evaluation examples.
+- `data/processed/kabyle_master.jsonl`: 8,589 consolidated records.
 
 ### Sample Format
 Each record includes complete ChatML messages along with language and quality metadata:
@@ -26,12 +26,14 @@ Each record includes complete ChatML messages along with language and quality me
 ```
 
 ## Data Sources & Attribution
-The corpus aggregates and cleans several established open-source initiatives:
-1. **AmaWar Cultural Corpus (`Tamazight-NLP/AmaWar`):** Traditional proverbs, idioms, and riddles with Arabic/French explanations.
-2. **Kabyle Wikipedia (`Sifal/KabyleWikipedia`):** Encyclopedic Q&A entries covering history, geography, science, and nature.
-3. **Kabyle-French Lexicon (`Sifal/Kabyle-French`):** Everyday contextual dialogue pairs.
-4. **Expert Curated Seed Dialogues:** Handcrafted multi-turn conversational templates covering greetings, history (Numidia, Massinissa), culture (Tiwizi, Yennayer), and everyday assistance.
-
+The corpus aggregates and cleans verified open-source initiatives registered in `configs/datasets.yaml`:
+1. **HCA Kabyle Corpus (`Imsidag-community/kabyle-corpus-hca`):** Authentic Kabyle literature and cultural publications (CC-BY-SA 4.0).
+2. **UMMTO University Academic Corpus (`Imsidag-community/kabyle-corpus-ummto`):** University master theses and literary texts from Tizi Ouzou (CC-BY-SA 4.0).
+3. **University of Bouira Corpus (`Imsidag-community/kabyle-corpus-ubouira`):** Academic and literary Kabyle corpora (CC-BY-SA 4.0).
+4. **AmaWar Cultural Corpus (`Tamazight-NLP/AmaWar`):** Traditional proverbs, idioms, and riddles with bilingual explanations (Apache 2.0).
+5. **Kabyle Wikipedia (`Sifal/KabyleWikipedia`):** Encyclopedic Q&A entries covering history, geography, science, and nature.
+6. **TranslateWiki & Pontoon Localizations (`Tamazight-NLP/translatewiki` & `Pontoon`):** Technical and localization terminology (CC-BY 3.0 / MPL 2.0).
+7. **Expert Curated Seed Dialogues:** Handcrafted multi-turn conversational templates covering greetings, history (Numidia, Massinissa), culture (Tiwizi, Yennayer), and everyday assistance.
 ## Preprocessing & Curation Pipeline
 1. **Normalization:** All inputs undergo Unicode **NFKC** normalization, quote standardization (`«»“”` $\rightarrow$ `"`), and whitespace collapse.
 2. **Quality Filtering:** Discards samples where either turn is shorter than 3 characters, empty, or structurally corrupted.

@@ -1,9 +1,9 @@
 model:
-  name: "Qwen/Qwen2.5-0.5B-Instruct"
-  tokenizer_name: "Qwen/Qwen2.5-0.5B-Instruct"
+  name: "Qwen/Qwen2.5-1.5B-Instruct"
+  tokenizer_name: "Qwen/Qwen2.5-1.5B-Instruct"
   torch_dtype: "auto"
-  output_dir: "tamazight-qwen-0.5b-final"
-  adapter_dir: "tamazight-qwen-0.5b-lora"
+  output_dir: "tamazight-kabyle-qwen-1.5b-final"
+  adapter_dir: "tamazight-kabyle-qwen-1.5b-lora"
 
 lora:
   r: 16

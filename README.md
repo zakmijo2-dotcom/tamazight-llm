@@ -1,13 +1,12 @@
-# Tamazight Multilingual LLM (Qwen2.5-0.5B) ⵣ
+# Tamazight Multilingual LLM (Qwen2.5-1.5B & 0.5B) ⵣ
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/zakmijo2-dotcom/tamazight-llm)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![CI](https://github.com/zakmijo2-dotcom/tamazight-llm/actions/workflows/ci.yml/badge.svg)](https://github.com/zakmijo2-dotcom/tamazight-llm/actions/workflows/ci.yml)
 
-A lightweight multilingual conversational language model based on **`Qwen/Qwen2.5-0.5B-Instruct`** (~490M parameters), optimized and fine-tuned for **Tamazight (Kabyle Latin script)** while preserving native conversational fluency in **Arabic**, **French**, and **English**.
+A high-performance multilingual conversational language model based on **`Qwen/Qwen2.5-1.5B-Instruct`** (~1.54 Billion parameters) and **`Qwen/Qwen2.5-0.5B-Instruct`** (~490 Million parameters), optimized and fine-tuned for **Tamazight (Kabyle / Taqbaylit in Latin script)** while preserving native conversational fluency in **Arabic**, **French**, and **English**.
 
-Designed for edge deployment, local workstation development, and mobile inference on Android devices via **Termux** and **`llama.cpp`**.
-
+Designed for cloud training, local development, and mobile edge inference on Android devices via **Termux** and **`llama.cpp`**.
 ---
 
 ## 🌟 Key Features
@@ -36,31 +35,34 @@ Designed for edge deployment, local workstation development, and mobile inferenc
 ```text
 tamazight-llm/
 ├── configs/
-│   └── config.yaml              # Centralized configuration (model, LoRA, training, paths)
+│   ├── config.yaml              # Centralized configuration (model, LoRA, training, paths)
+│   └── datasets.yaml            # Official dataset registry (HCA, UMMTO, Bouira, AmaWar, etc.)
 ├── data/
-│   ├── raw/                     # Raw original source TSVs
-│   ├── processed/               # Deduplicated and normalized master dataset
-│   ├── train.jsonl              # Clean training split (3,147 samples)
-│   ├── validation.jsonl         # Clean validation split (174 samples)
-│   └── test.jsonl               # Held-out evaluation split (174 samples)
+│   ├── raw/                     # Raw original source TSVs and Hugging Face mirrors
+│   ├── processed/               # Master deduplicated dataset (8,589 samples)
+│   ├── train.jsonl              # Clean training split (7,731 samples)
+│   ├── validation.jsonl         # Clean validation split (429 samples)
+│   └── test.jsonl               # Held-out evaluation split (429 samples)
 ├── src/
 │   ├── __init__.py
 │   ├── config.py                # Typed dataclass config loader
 │   ├── chat_template.py         # Qwen2.5 native ChatML template and SFT encoder
 │   ├── data.py                  # Normalization, script detection, deduplication
+│   ├── seed_dialogues.py        # Curated 4-language seed conversations
 │   ├── model.py                 # Model loader, LoRA attachment, and artifact export
 │   ├── training.py              # SFT Trainer with assistant-only loss masking
-│   ├── inference.py             # Multilingual inference and interactive chat engine
-│   └── seed_dialogues.py        # Curated 4-language seed conversations
+│   └── inference.py             # Multilingual inference and interactive chat engine
 ├── training/
 │   └── train.py                 # Modular training CLI
 ├── evaluation/
 │   ├── benchmark.py             # Evaluation suite (PPL, 4-language accuracy, translation)
-│   ├── datasets/                # Standardized evaluation benchmarks
+│   ├── datasets/                # Standardized evaluation benchmarks (6 test sets)
 │   └── results/                 # Output JSON reports and CSV summaries
 ├── scripts/
+│   ├── download_kabyle_data.py  # Automated Hugging Face dataset download & synthesis
 │   ├── prepare_data.py          # Data ingestion, deduplication, and splitting pipeline
 │   ├── check_data_leakage.py    # Contamination auditor (0% leakage check)
+│   ├── analyze_tokenizer.py     # Tokenizer efficiency & Kabyle phonology stress-test
 │   └── export_gguf.py           # GGUF converter, quantizer, and metadata inspector
 ├── tests/                       # Complete pytest unit test suite (16 tests)
 ├── tools/llama.cpp/             # Bundled offline GGUF conversion tools

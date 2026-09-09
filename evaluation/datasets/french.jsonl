@@ -1,5 +1,10 @@
-{"id": "fr_1", "task": "conversation", "prompt": "Bonjour ! Comment vas-tu aujourd'hui ?", "reference": "Bonjour ! Je vais très bien, merci.", "keywords": ["bonjour", "bien", "merci", "aide"]}
-{"id": "fr_2", "task": "knowledge", "prompt": "Quelle est la capitale de la France ?", "reference": "La capitale de la France est Paris.", "keywords": ["paris"]}
-{"id": "fr_3", "task": "grammar", "prompt": "Conjugue le verbe être au présent avec le pronom 'nous'.", "reference": "Nous sommes.", "keywords": ["sommes"]}
-{"id": "fr_4", "task": "vocabulary", "prompt": "Quel est le synonyme de 'rapide' ?", "reference": "Un synonyme de rapide est vite ou véloce.", "keywords": ["vite", "véloce", "prompt"]}
-{"id": "fr_5", "task": "reasoning", "prompt": "Si hier était mardi, quel jour serons-nous demain ?", "reference": "Demain sera jeudi.", "keywords": ["jeudi"]}
+{"id": "fr_01", "task": "conversation", "prompt": "Bonjour ! Comment vas-tu aujourd'hui ?", "reference": "Bonjour ! Je vais très bien, merci.", "keywords": ["bonjour", "bien", "merci", "aide"]}
+{"id": "fr_02", "task": "knowledge", "prompt": "Quelle est la capitale de la France ?", "reference": "La capitale de la France est Paris.", "keywords": ["paris"]}
+{"id": "fr_03", "task": "grammar", "prompt": "Conjugue le verbe être au présent avec le pronom 'nous'.", "reference": "Nous sommes.", "keywords": ["sommes"]}
+{"id": "fr_04", "task": "vocabulary", "prompt": "Quel est le synonyme de 'rapide' ?", "reference": "Un synonyme de rapide est vite ou véloce.", "keywords": ["vite", "véloce", "prompt"]}
+{"id": "fr_05", "task": "reasoning", "prompt": "Si hier était mardi, quel jour serons-nous demain ?", "reference": "Demain sera jeudi.", "keywords": ["jeudi"]}
+{"id": "fr_06", "task": "culture", "prompt": "Que signifie le mot berbère 'Tiwizi' ?", "reference": "La Tiwizi désigne la solidarité et le travail collectif d'entraide villageoise.", "keywords": ["solidarité", "entraide", "collectif", "village"]}
+{"id": "fr_07", "task": "history", "prompt": "Qui était Massinissa dans l'histoire de l'Afrique du Nord ?", "reference": "Massinissa était le premier roi de la Numidie unifiée.", "keywords": ["massinissa", "numidie", "roi"]}
+{"id": "fr_08", "task": "science", "prompt": "Quel est l'organe principal de la circulation sanguine chez l'être humain ?", "reference": "Le cœur est l'organe moteur de la circulation sanguine.", "keywords": ["cœur", "coeur"]}
+{"id": "fr_09", "task": "summarization", "prompt": "Résume en une phrase : 'L'artisanat kabyle se caractérise par le travail de la poterie aux motifs géométriques et la confection des bijoux traditionnels en argent.'", "reference": "L'artisanat kabyle brille par sa poterie géométrique et ses bijoux en argent.", "keywords": ["artisanat", "poterie", "bijoux", "argent", "kabyle"]}
+{"id": "fr_10", "task": "translation", "prompt": "Que signifie l'expression kabyle 'Tanemmirt' en français ?", "reference": "Tanemmirt signifie 'Merci' en français.", "keywords": ["merci"]}

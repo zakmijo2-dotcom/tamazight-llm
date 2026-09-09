@@ -1,5 +1,12 @@
-{"id": "ber_1", "task": "conversation", "prompt": "Azul fell-awen! Amek telliḍ?", "reference": "Azul! Labas, tanemmirt.", "keywords": ["azul", "labas", "tanemmirt", "telliḍ"]}
-{"id": "ber_2", "task": "vocabulary", "prompt": "Amek i qqaren 'bonjour' s tmaziɣt?", "reference": "Qqaren-as 'Azul'.", "keywords": ["azul"]}
-{"id": "ber_3", "task": "vocabulary", "prompt": "Amek i qqaren 'merci' s tmaziɣt?", "reference": "Qqaren-as 'Tanemmirt'.", "keywords": ["tanemmirt"]}
-{"id": "ber_4", "task": "conversation", "prompt": "Ar tufat!", "reference": "Ar tufat d timlilit igerzen!", "keywords": ["ar tufat", "ar timlilit", "lahna"]}
-{"id": "ber_5", "task": "grammar", "prompt": "D acu i d amyag deg tefyirt: 'Yura wergaz tabrat'?", "reference": "Amyag d 'Yura'.", "keywords": ["yura", "amyag"]}
+{"id": "ber_01", "task": "conversation", "prompt": "Azul fell-awen! Amek telliḍ?", "reference": "Azul! Labas, tanemmirt.", "keywords": ["azul", "labas", "tanemmirt", "telliḍ"]}
+{"id": "ber_02", "task": "vocabulary", "prompt": "Amek i qqaren 'bonjour' s tmaziɣt?", "reference": "Qqaren-as 'Azul'.", "keywords": ["azul"]}
+{"id": "ber_03", "task": "vocabulary", "prompt": "Amek i qqaren 'merci' s tmaziɣt?", "reference": "Qqaren-as 'Tanemmirt'.", "keywords": ["tanemmirt"]}
+{"id": "ber_04", "task": "conversation", "prompt": "Ar tufat!", "reference": "Ar tufat d timlilit igerzen!", "keywords": ["ar tufat", "ar timlilit", "lahna"]}
+{"id": "ber_05", "task": "grammar", "prompt": "D acu i d amyag deg tefyirt: 'Yura wergaz tabrat'?", "reference": "Amyag d 'Yura'.", "keywords": ["yura", "amyag"]}
+{"id": "ber_06", "task": "grammar", "prompt": "Acu i d asget n wawal 'Aqcic' s teqbaylit?", "reference": "Asget n aqcic d 'Iqcicen'.", "keywords": ["iqcicen"]}
+{"id": "ber_07", "task": "grammar", "prompt": "Acu i d unti n wawal 'Argaz' s teqbaylit?", "reference": "Unti n argaz d 'Tameṭṭut'.", "keywords": ["tameṭṭut", "tameṭut"]}
+{"id": "ber_08", "task": "vocabulary", "prompt": "Acu i d anamek n wawal 'Aḍris' s teqbaylit?", "reference": "Aḍris d texte neɣ aḍris yuran.", "keywords": ["texte", "tira", "aḍris"]}
+{"id": "ber_09", "task": "qa", "prompt": "D acu i d amenzu n Yennayer?", "reference": "Yennayer d amenzu n useggas amaziɣ ass n 12 yennayer.", "keywords": ["yennayer", "amenzu", "useggas", "amazigh", "amaziɣ"]}
+{"id": "ber_10", "task": "qa", "prompt": "Anta i d tamaneɣt n Numidya zik-nni?", "reference": "Tamaneɣt n Numidya zik d Cirta (Qsenṭina n tura).", "keywords": ["cirta", "qsenṭina", "numidya"]}
+{"id": "ber_11", "task": "summarization", "prompt": "Ssummel-d aḍris-a s teqbaylit: 'Taddart taqbaylit tebna ɣef Tajmaɛt d tiwizi anda lɣaci ttemɛawanen deg wayen akk yelhan.'", "reference": "Taddart tebna ɣef tdukli d tiwizi n lɣaci.", "keywords": ["taddart", "tiwizi", "tdukli", "tajmaɛt"]}
+{"id": "ber_12", "task": "proverb", "prompt": "Kemmel inzi-agi s teqbaylit: 'Awal ɣezzif...'", "reference": "'...lmeɛna tewzel.'", "keywords": ["lmeɛna", "tewzel"]}

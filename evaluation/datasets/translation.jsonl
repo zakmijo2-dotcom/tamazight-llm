@@ -1,6 +1,10 @@
-{"id": "tr_1", "task": "translation", "prompt": "Tasuqilt ar tmaziɣt n: \"Bonjour mon ami\"", "reference": "Azul a ddukkli / Azul a gma", "keywords": ["azul", "amidi", "gma"]}
-{"id": "tr_2", "task": "translation", "prompt": "Tasuqilt ar tmaziɣt n: \"Comment vas-tu ?\"", "reference": "Amek telliḍ?", "keywords": ["amek", "telliḍ"]}
-{"id": "tr_3", "task": "translation", "prompt": "Tasuqilt ar tmaziɣt n: \"Merci beaucoup\"", "reference": "Tanemmirt tameqrant", "keywords": ["tanemmirt"]}
-{"id": "tr_4", "task": "translation", "prompt": "Tasuqilt ar tmaziɣt n: \"Au revoir\"", "reference": "Ar tufat", "keywords": ["ar tufat", "ar timlilit", "lahna"]}
-{"id": "tr_5", "task": "translation", "prompt": "Tasuqilt ar tmaziɣt n: \"Je ne sais pas\"", "reference": "Ur ssineɣ ara / Ur ẓriɣ ara", "keywords": ["ur ssineɣ", "ur ẓriɣ"]}
-{"id": "tr_6", "task": "translation", "prompt": "Tasuqilt ar tmaziɣt n: \"Bonne nuit\"", "reference": "Iḍ ameggaz / Lahna n yiḍ", "keywords": ["iḍ ameggaz", "lahna", "amenzu"]}
+{"id": "tr_01", "task": "fr_to_kab", "prompt": "Tasuqilt ar tmaziɣt n: \"Bonjour mon ami\"", "reference": "Azul a ddukkli / Azul a gma", "keywords": ["azul", "amidi", "gma"]}
+{"id": "tr_02", "task": "fr_to_kab", "prompt": "Tasuqilt ar tmaziɣt n: \"Comment vas-tu ?\"", "reference": "Amek telliḍ?", "keywords": ["amek", "telliḍ"]}
+{"id": "tr_03", "task": "fr_to_kab", "prompt": "Tasuqilt ar tmaziɣt n: \"Merci beaucoup\"", "reference": "Tanemmirt tameqrant", "keywords": ["tanemmirt"]}
+{"id": "tr_04", "task": "fr_to_kab", "prompt": "Tasuqilt ar tmaziɣt n: \"Au revoir\"", "reference": "Ar tufat", "keywords": ["ar tufat", "ar timlilit", "lahna"]}
+{"id": "tr_05", "task": "fr_to_kab", "prompt": "Tasuqilt ar tmaziɣt n: \"Je ne sais pas\"", "reference": "Ur ssineɣ ara / Ur ẓriɣ ara", "keywords": ["ur ssineɣ", "ur ẓriɣ"]}
+{"id": "tr_06", "task": "fr_to_kab", "prompt": "Tasuqilt ar tmaziɣt n: \"Bonne nuit\"", "reference": "Iḍ ameggaz / Lahna n yiḍ", "keywords": ["iḍ ameggaz", "lahna", "amenzu"]}
+{"id": "tr_07", "task": "en_to_kab", "prompt": "Translate to Kabyle: \"Welcome to our village.\"", "reference": "Ansuf yis-wen ɣer taddart-nneɣ.", "keywords": ["ansuf", "taddart"]}
+{"id": "tr_08", "task": "ar_to_kab", "prompt": "ترجم إلى القبايلية: \"السلام عليكم ورحمة الله\"", "reference": "Azul fell-awen / Talwit fell-awen.", "keywords": ["azul", "talwit", "fell-awen"]}
+{"id": "tr_09", "task": "kab_to_en", "prompt": "Translate to English: \"Tanemmirt tameqrant ɣef tallalt-ik.\"", "reference": "Thank you very much for your help.", "keywords": ["thank", "help"]}
+{"id": "tr_10", "task": "kab_to_fr", "prompt": "Traduis en français : \"Amek telliḍ ass-a ?\"", "reference": "Comment vas-tu aujourd'hui ?", "keywords": ["comment", "vas-tu", "aujourd'hui"]}

@@ -70,9 +70,9 @@ This model is lightweight enough to run locally inside **Termux** on Android usi
 
 def main():
     parser = argparse.ArgumentParser(description="Upload Tamazight LLM to Hugging Face")
-    default_dir = "tamazight-qwen-0.5b-final" if os.path.exists("tamazight-qwen-0.5b-final") else "tamazight-multilingual-llm-final"
+    default_dir = "tamazight-kabyle-qwen-1.5b-final" if os.path.exists("tamazight-kabyle-qwen-1.5b-final") else ("tamazight-qwen-0.5b-final" if os.path.exists("tamazight-qwen-0.5b-final") else "tamazight-multilingual-llm-final")
     parser.add_argument("--model-dir", type=str, default=default_dir, help=f"Path to model directory (default: {default_dir})")
-    parser.add_argument("--repo-id", type=str, required=True, help="HF repository ID (e.g. username/tamazight-qwen-0.5b)")
+    parser.add_argument("--repo-id", type=str, required=True, help="HF repository ID (e.g. username/tamazight-kabyle-qwen-1.5b)")
     parser.add_argument("--token", type=str, default=os.getenv("HF_TOKEN"), help="Hugging Face write token")
     parser.add_argument("--private", action="store_true", help="Create private repository")
     args = parser.parse_args()
