@@ -1,0 +1,31 @@
+# Model binaries and large caches
+*.gguf
+*.safetensors
+*.bin
+*.pt
+
+# Data raw archives and extractions
+data/wiki_extracted/
+data/WIKABV1.zip
+test.safetensors
+debug_log.txt
+sample_train.txt
+
+# Python & Environment
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Checkpoints
+tamazight-smollm-135m/
+tamazight_smollm_finetuned/
+output/
+checkpoint-*/
+runs/
+.cache/
