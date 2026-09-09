@@ -1,0 +1,5 @@
+{"id": "fr_1", "task": "conversation", "prompt": "Bonjour ! Comment vas-tu aujourd'hui ?", "reference": "Bonjour ! Je vais très bien, merci.", "keywords": ["bonjour", "bien", "merci", "aide"]}
+{"id": "fr_2", "task": "knowledge", "prompt": "Quelle est la capitale de la France ?", "reference": "La capitale de la France est Paris.", "keywords": ["paris"]}
+{"id": "fr_3", "task": "grammar", "prompt": "Conjugue le verbe être au présent avec le pronom 'nous'.", "reference": "Nous sommes.", "keywords": ["sommes"]}
+{"id": "fr_4", "task": "vocabulary", "prompt": "Quel est le synonyme de 'rapide' ?", "reference": "Un synonyme de rapide est vite ou véloce.", "keywords": ["vite", "véloce", "prompt"]}
+{"id": "fr_5", "task": "reasoning", "prompt": "Si hier était mardi, quel jour serons-nous demain ?", "reference": "Demain sera jeudi.", "keywords": ["jeudi"]}

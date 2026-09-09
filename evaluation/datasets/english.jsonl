@@ -1,0 +1,5 @@
+{"id": "en_1", "task": "conversation", "prompt": "Hello! How are you doing today?", "reference": "Hello! I am doing well, thank you.", "keywords": ["hello", "well", "doing", "help"]}
+{"id": "en_2", "task": "knowledge", "prompt": "What is the capital city of Canada?", "reference": "The capital city of Canada is Ottawa.", "keywords": ["ottawa"]}
+{"id": "en_3", "task": "grammar", "prompt": "What is the past tense of the irregular verb 'to write'?", "reference": "The past tense of write is wrote.", "keywords": ["wrote"]}
+{"id": "en_4", "task": "vocabulary", "prompt": "What is an antonym for the word 'ancient'?", "reference": "An antonym for ancient is modern or new.", "keywords": ["modern", "new", "recent"]}
+{"id": "en_5", "task": "reasoning", "prompt": "If a triangle has two equal sides, what type of triangle is it called?", "reference": "It is called an isosceles triangle.", "keywords": ["isosceles"]}

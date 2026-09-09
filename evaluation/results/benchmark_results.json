@@ -1,0 +1,276 @@
+{
+  "evaluated_model": {
+    "model_path": "test_smoke_model",
+    "perplexity": 325.38831422643034,
+    "loss": 5.785019282113135,
+    "average_accuracy": 43.333333333333336,
+    "tasks": {
+      "arabic": {
+        "task": "arabic",
+        "total_cases": 5,
+        "passed": 2,
+        "accuracy": 40.0,
+        "details": [
+          {
+            "id": "ar_1",
+            "prompt": "مرحباً بك! كيف حالك اليوم؟",
+            "generated": "أنا بخير، شكراً! كيف يمكنني مساعدتك اليوم؟",
+            "reference": "أهلاً وسهلاً! أنا بخير وبأفضل حال.",
+            "matched": true
+          },
+          {
+            "id": "ar_2",
+            "prompt": "ما هي عاصمة الجزائر؟",
+            "generated": "عاصمة الجزائر هي مدينة مراكش.",
+            "reference": "عاصمة الجزائر هي مدينة الجزائر.",
+            "matched": true
+          },
+          {
+            "id": "ar_3",
+            "prompt": "ما هو إعراب كلمة 'الكتاب' في جملة: 'قرأ التلميذُ الكتابَ'؟",
+            "generated": "إعراب كلمة \"الكتاب\" في الجملة \"قرأ التلميذُ الكتابَ\" هو:\n\n\"قرأ الكتابَ\"\n\nهذا الإعراب يشير إلى أن الشخص الذي قرأ الكتاب هو التلميذ، وليس الكتاب نفسه.",
+            "reference": "الكتابَ: مفعول به منصوب وعلامة نصبه الفتحة الظاهرة.",
+            "matched": false
+          },
+          {
+            "id": "ar_4",
+            "prompt": "ما هو مرادف كلمة 'سرور'؟",
+            "generated": "مرادف لـ \"سرور\" في اللغة العربية هي \"خير\".",
+            "reference": "مرادف سرور هو فرح أو بهجة أو سعادة.",
+            "matched": false
+          },
+          {
+            "id": "ar_5",
+            "prompt": "إذا كان اليوم هو الأربعاء، فما هو اليوم بعد يومين؟",
+            "generated": "يوم التالي للإثنين هو الخميس.",
+            "reference": "اليوم بعد يومين هو يوم الجمعة.",
+            "matched": false
+          }
+        ]
+      },
+      "culture": {
+        "task": "culture",
+        "total_cases": 5,
+        "passed": 4,
+        "accuracy": 80.0,
+        "details": [
+          {
+            "id": "cul_1",
+            "prompt": "D acu i d Imaziɣen?",
+            "generated": "Imaziɣen, also known as Imazighen or Imazighen, is a Berber ethnic group that primarily inhabits the northern part of Algeria. They speak the Berber language, which is closely related to other Berber languages such as Tigrinya and Wolof. The",
+            "reference": "Imaziɣen d imezdaɣ ineṣliyen n Tefriqt n Ugafa.",
+            "matched": true
+          },
+          {
+            "id": "cul_2",
+            "prompt": "Anwa i d Massinissa?",
+            "generated": "I'm sorry, but I don't have enough context to provide an accurate response about \"Massinissa\" without more information. The name Massinissa is not commonly known or widely recognized in English-speaking countries. It's possible that you might be referring to someone named Massinissa who has been",
+            "reference": "Massinissa d agellid ameqran n Numidya.",
+            "matched": true
+          },
+          {
+            "id": "cul_3",
+            "prompt": "D acu i d Tiwizi?",
+            "generated": "Tiwizi, wuxa xamay yi dhiir ah. Wuxa xamay yi dhaqin kuma taariikhda ah, wuxa xamay yi dhaqin kuma taariikhda ah. Wuxa xamay",
+            "reference": "Tiwizi d lemɛawna d tdukli n taddart.",
+            "matched": true
+          },
+          {
+            "id": "cul_4",
+            "prompt": "ما هو أصل الاحتفال بعيد ينّاير؟",
+            "generated": "أصل الاحتفال بعيد ينّاير هو عيد الميلاد، وهو ميلاد رضي الله عنه. هذا العيد يعتبر من الأعياد الأكثر أهمية في الإسلام ويعتبر من أقدم الأعياد الإسلامية.",
+            "reference": "ينّاير هو رأس السنة الأمازيغية الزراعية.",
+            "matched": false
+          },
+          {
+            "id": "cul_5",
+            "prompt": "Qu'est-ce que le Yennayer dans la tradition berbère ?",
+            "generated": "Le Yennayer est une pratique culturelle spécifique à la Berbérie, un pays d'Afrique de l'Ouest. Voici quelques points clés sur ce concept :\n\n1. Origine : Il se trouve principalement en Berbérie, mais peut également être pratiqué dans des",
+            "reference": "Yennayer est le Nouvel An amazigh fêté le 12 janvier.",
+            "matched": true
+          }
+        ]
+      },
+      "english": {
+        "task": "english",
+        "total_cases": 5,
+        "passed": 3,
+        "accuracy": 60.0,
+        "details": [
+          {
+            "id": "en_1",
+            "prompt": "Hello! How are you doing today?",
+            "generated": "Bonjour ! Comment ça va aujourd'hui ?",
+            "reference": "Hello! I am doing well, thank you.",
+            "matched": false
+          },
+          {
+            "id": "en_2",
+            "prompt": "What is the capital city of Canada?",
+            "generated": "The capital city of Canada is Ottawa.",
+            "reference": "The capital city of Canada is Ottawa.",
+            "matched": true
+          },
+          {
+            "id": "en_3",
+            "prompt": "What is the past tense of the irregular verb 'to write'?",
+            "generated": "The past tense of the irregular verb \"to write\" in Tamazight is \"نُكتب\".",
+            "reference": "The past tense of write is wrote.",
+            "matched": false
+          },
+          {
+            "id": "en_4",
+            "prompt": "What is an antonym for the word 'ancient'?",
+            "generated": "The antonym of \"ancient\" in the given languages is:\n\n**Modern**\n\nIn English, it means something that has not yet been invented or existed long ago. In other words, it refers to things that have not been created or developed as we know them today.",
+            "reference": "An antonym for ancient is modern or new.",
+            "matched": true
+          },
+          {
+            "id": "en_5",
+            "prompt": "If a triangle has two equal sides, what type of triangle is it called?",
+            "generated": "A triangle with two equal sides is called an isosceles triangle.",
+            "reference": "It is called an isosceles triangle.",
+            "matched": true
+          }
+        ]
+      },
+      "french": {
+        "task": "french",
+        "total_cases": 5,
+        "passed": 3,
+        "accuracy": 60.0,
+        "details": [
+          {
+            "id": "fr_1",
+            "prompt": "Bonjour ! Comment vas-tu aujourd'hui ?",
+            "generated": "Bonjour! Je vais bien, merci de me poser cette question. Comment allez-vous aujourd'hui ?",
+            "reference": "Bonjour ! Je vais très bien, merci.",
+            "matched": true
+          },
+          {
+            "id": "fr_2",
+            "prompt": "Quelle est la capitale de la France ?",
+            "generated": "La capitale de la France est Paris.",
+            "reference": "La capitale de la France est Paris.",
+            "matched": true
+          },
+          {
+            "id": "fr_3",
+            "prompt": "Conjugue le verbe être au présent avec le pronom 'nous'.",
+            "generated": "Voici la conjugaison du verbe \"être\" au présent en français :\n\nNous sommes\n\nC'est donc notre première étape pour apprendre à utiliser ce verbe dans un contexte plus formel ou professionnel.",
+            "reference": "Nous sommes.",
+            "matched": true
+          },
+          {
+            "id": "fr_4",
+            "prompt": "Quel est le synonyme de 'rapide' ?",
+            "generated": "Le synonyme de \"rapide\" en français est \"rapid\". En anglais, il est \"quick\", et en arabe, \"صحيحة\" (eshiyigh).",
+            "reference": "Un synonyme de rapide est vite ou véloce.",
+            "matched": false
+          },
+          {
+            "id": "fr_5",
+            "prompt": "Si hier était mardi, quel jour serons-nous demain ?",
+            "generated": "Si hier était mardi, nous serions dimanche demain.",
+            "reference": "Demain sera jeudi.",
+            "matched": false
+          }
+        ]
+      },
+      "tamazight": {
+        "task": "tamazight",
+        "total_cases": 5,
+        "passed": 1,
+        "accuracy": 20.0,
+        "details": [
+          {
+            "id": "ber_1",
+            "prompt": "Azul fell-awen! Amek telliḍ?",
+            "generated": "Azul fallu awen! Amek telliḍ?",
+            "reference": "Azul! Labas, tanemmirt.",
+            "matched": true
+          },
+          {
+            "id": "ber_2",
+            "prompt": "Amek i qqaren 'bonjour' s tmaziɣt?",
+            "generated": "Bonjour! Comment puis-je vous aider aujourd'hui ?",
+            "reference": "Qqaren-as 'Azul'.",
+            "matched": false
+          },
+          {
+            "id": "ber_3",
+            "prompt": "Amek i qqaren 'merci' s tmaziɣt?",
+            "generated": "I'm sorry, but I don't understand what you're asking for. Could you please provide more context or clarify your question?",
+            "reference": "Qqaren-as 'Tanemmirt'.",
+            "matched": false
+          },
+          {
+            "id": "ber_4",
+            "prompt": "Ar tufat!",
+            "generated": "Ahmed! I'm just here to chat. How can I assist you today?",
+            "reference": "Ar tufat d timlilit igerzen!",
+            "matched": false
+          },
+          {
+            "id": "ber_5",
+            "prompt": "D acu i d amyag deg tefyirt: 'Yura wergaz tabrat'?",
+            "generated": "Je suis désolé, mais je ne comprends pas complètement votre question. Pourriez-vous reformuler ou préciser votre demande ? Je serai ravi de vous aider si vous pouvez me donner plus de détails.",
+            "reference": "Amyag d 'Yura'.",
+            "matched": false
+          }
+        ]
+      },
+      "translation": {
+        "task": "translation",
+        "total_cases": 6,
+        "passed": 0,
+        "accuracy": 0.0,
+        "details": [
+          {
+            "id": "tr_1",
+            "prompt": "Tasuqilt ar tmaziɣt n: \"Bonjour mon ami\"",
+            "generated": "Bonjour mon ami! Comment puis-je vous aider aujourd'hui?",
+            "reference": "Azul a ddukkli / Azul a gma",
+            "matched": false
+          },
+          {
+            "id": "tr_2",
+            "prompt": "Tasuqilt ar tmaziɣt n: \"Comment vas-tu ?\"",
+            "generated": "Bonjour! Comment ça va?",
+            "reference": "Amek telliḍ?",
+            "matched": false
+          },
+          {
+            "id": "tr_3",
+            "prompt": "Tasuqilt ar tmaziɣt n: \"Merci beaucoup\"",
+            "generated": "Merci beaucoup!",
+            "reference": "Tanemmirt tameqrant",
+            "matched": false
+          },
+          {
+            "id": "tr_4",
+            "prompt": "Tasuqilt ar tmaziɣt n: \"Au revoir\"",
+            "generated": "Au revoir!",
+            "reference": "Ar tufat",
+            "matched": false
+          },
+          {
+            "id": "tr_5",
+            "prompt": "Tasuqilt ar tmaziɣt n: \"Je ne sais pas\"",
+            "generated": "I understand you're asking about the phrase \"Je ne sais pas\" in Tamazight. This is a common expression that means \"I don't know\" or \"I'm not sure.\" Here's how it translates to English:\n\n\"I don't know\"\n\nIn Tamazight:\n- \"Je",
+            "reference": "Ur ssineɣ ara / Ur ẓriɣ ara",
+            "matched": false
+          },
+          {
+            "id": "tr_6",
+            "prompt": "Tasuqilt ar tmaziɣt n: \"Bonne nuit\"",
+            "generated": "Bonne nuit à vous! Je suis content que vous ayez une bonne nuit aussi.",
+            "reference": "Iḍ ameggaz / Lahna n yiḍ",
+            "matched": false
+          }
+        ]
+      }
+    }
+  },
+  "base_model": null
+}

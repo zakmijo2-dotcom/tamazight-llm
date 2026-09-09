@@ -1,41 +1,8 @@
-#!/usr/bin/env python3
 """
-Build a balanced, real 4-Language Multilingual LLM Corpus:
-Languages:
-  - Tamazight (Tamaziɣt s ugemmay alatini)
-  - Arabic (العربية)
-  - French (Français)
-  - English
-
-Guarantees the Golden Rule of Conversational AI:
-  - When user speaks Tamazight -> Assistant answers in Tamazight.
-  - When user speaks Arabic    -> Assistant answers in Arabic.
-  - When user speaks French    -> Assistant answers in French.
-  - When user speaks English   -> Assistant answers in English.
+Curated multilingual seed dialogues across Tamazight, Arabic, French, and English.
+Used by data preparation and testing pipelines.
 """
 
-import os
-import json
-import random
-
-SYSTEM_PROMPT = (
-    "You are a helpful, culturally aware, multilingual AI assistant fluent in "
-    "Tamazight (Tamaziɣt s ugemmay alatini), Arabic (العربية), French (Français), and English. "
-    "Always converse and answer naturally in the language used by the user."
-)
-
-def chatml_record(user_msg, assistant_msg, sys_prompt=SYSTEM_PROMPT):
-    return {
-        "prompt": (
-            f"<|im_start|>system\n{sys_prompt}<|im_end|>\n"
-            f"<|im_start|>user\n{user_msg}<|im_end|>\n"
-            f"<|im_start|>assistant\n{assistant_msg}<|im_end|>"
-        ),
-        "user": user_msg,
-        "assistant": assistant_msg
-    }
-
-# Comprehensive hand-curated multi-domain Q&A sets
 TAMAZIGHT_CORE = [
     ("Azul fell-ak!", "Azul fell-ak a gma! Ansuf yis-k. Amek telliḍ? Ssarameɣ teggarzed."),
     ("Azul fell-awen! Amek telliḍ?", "Azul! Labas, tanemmirt tameqrant. Kulci yelha. Amek i tetteddu tmeddurt-ik ass-a?"),
@@ -95,7 +62,6 @@ ENGLISH_CORE = [
     ("Thank you very much for your great assistance!", "You are very welcome! If you have any further questions in English, Tamazight, Arabic, or French, feel free to ask. Have a fantastic day!")
 ]
 
-# Cross-lingual queries (inquiring across languages about Amazigh culture or general topics)
 CROSS_LINGUAL = [
     ("Comment dit-on 'Comment vas-tu' en berbère ?", "En tamazight (berbère), on dit : **'Amek telliḍ ?'** (au masculin et féminin) ou **'Amek tellam ?'** quand on s'adresse à un groupe."),
     ("كيف أقول شكراً جزيلاً بالأمازيغية؟", "تقول بالأمازيغية: **'Tanemmirt tameqrant'** (تانميرت تامقرانت)، وهي تعني شكراً جزيلاً."),
@@ -104,100 +70,3 @@ CROSS_LINGUAL = [
     ("Quels sont les ingrédients traditionnels du couscous berbère ?", "Le couscous berbère traditionnel se compose de semoule de blé dur roulée à la main et cuite à la vapeur, accompagnée d'un bouillon parfumé à l'huile d'olive, de légumes de saison (courgettes, navets, carottes, fèves, potiron), de pois chiches et de viande d'agneau ou de poulet fermier."),
     ("What does the word 'Imazighen' mean?", "The word 'Imazighen' (singular: 'Amazigh') literally translates to 'free people' or 'noble men' in the Tamazight language, reflecting a deep cultural commitment to autonomy, dignity, and independence.")
 ]
-
-def extract_tamazight_wiki_qa(jsonl_file, max_count=3000):
-    """Extracts authentic encyclopedic Tamazight Q&As from Wikipedia."""
-    qa_pairs = []
-    if not os.path.exists(jsonl_file):
-        return qa_pairs
-
-    with open(jsonl_file, "r", encoding="utf-8") as f:
-        for line in f:
-            if not line.strip():
-                continue
-            try:
-                d = json.loads(line)
-                p = d.get("prompt", "")
-                if "<|im_start|>user" in p and "<|im_start|>assistant" in p:
-                    parts = p.split("<|im_start|>assistant\n")
-                    user_side = parts[0].replace("<|im_start|>user\n", "").replace("<|im_end|>\n", "").strip()
-                    asst_side = parts[1].replace("<|im_end|>", "").strip()
-                    
-                    # Only accept real Tamazight questions (e.g. Dacu i d ..., Amek, Anwa)
-                    if user_side.startswith("Dacu i d") or user_side.startswith("Amek") or user_side.startswith("Anwa") or user_side.startswith("Anta"):
-                        # Clean wiki title underscores
-                        cleaned_question = user_side.replace("_", " ")
-                        qa_pairs.append((cleaned_question, asst_side))
-                        if len(qa_pairs) >= max_count:
-                            break
-            except Exception:
-                continue
-
-    return qa_pairs
-
-def build_multilingual_corpus(output_path="data/multilingual_chat.jsonl"):
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    all_records = []
-
-    print("Building balanced 4-Language Conversational Corpus...")
-
-    # 1. Base curated dialogues
-    for u, a in TAMAZIGHT_CORE:
-        all_records.append(chatml_record(u, a))
-    for u, a in ARABIC_CORE:
-        all_records.append(chatml_record(u, a))
-    for u, a in FRENCH_CORE:
-        all_records.append(chatml_record(u, a))
-    for u, a in ENGLISH_CORE:
-        all_records.append(chatml_record(u, a))
-    for u, a in CROSS_LINGUAL:
-        all_records.append(chatml_record(u, a))
-
-    curated_count = len(all_records)
-    print(f"Added {curated_count} foundational conversational dialogues.")
-
-    # 2. Extract genuine encyclopedic Q&As in Tamazight
-    wiki_qa = extract_tamazight_wiki_qa("tamazight_train.jsonl", max_count=2500)
-    for u, a in wiki_qa:
-        all_records.append(chatml_record(u, a))
-    print(f"Added {len(wiki_qa)} authentic Tamazight encyclopedic Q&As.")
-
-    # 3. Add Cultural Proverbs & Idioms
-    if os.path.exists("data/proverbs.tsv"):
-        proverbs_added = 0
-        with open("data/proverbs.tsv", "r", encoding="utf-8") as f:
-            next(f, None)
-            for line in f:
-                parts = line.strip().split("\t")
-                if len(parts) >= 3 and parts[0] and parts[1]:
-                    ber, ar_trans, ar_mean = parts[0], parts[1], parts[2]
-                    # Arabic explanation
-                    all_records.append(chatml_record(
-                        f"ما معنى هذا المثل الأمازيغي: '{ber}'؟",
-                        f"معنى المثل: '{ar_trans}'. ويقصد به في الحكمة الشعبية: {ar_mean}."
-                    ))
-                    # Tamazight explanation
-                    all_records.append(chatml_record(
-                        f"Acu i d anamek n yinzi-agi: '{ber}'?",
-                        f"Inzi-agi yeqqar-d: '{ber}'. Anamek-is d akken: {ar_trans}."
-                    ))
-                    proverbs_added += 2
-        print(f"Added {proverbs_added} cultural proverb Q&As.")
-
-    # Replicate high-priority dialogues with slight shuffle to reinforce conversational persona
-    random.seed(42)
-    priority_subset = all_records[:curated_count]
-    for _ in range(4):
-        for rec in priority_subset:
-            all_records.append(rec)
-
-    random.shuffle(all_records)
-
-    with open(output_path, "w", encoding="utf-8") as f:
-        for rec in all_records:
-            f.write(json.dumps(rec, ensure_ascii=False) + "\n")
-
-    print(f"\nSUCCESS! Generated {len(all_records):,} balanced multilingual training samples in: {output_path}")
-
-if __name__ == "__main__":
-    build_multilingual_corpus()

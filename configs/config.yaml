@@ -1,0 +1,77 @@
+model:
+  name: "Qwen/Qwen2.5-0.5B-Instruct"
+  tokenizer_name: "Qwen/Qwen2.5-0.5B-Instruct"
+  torch_dtype: "auto"
+  output_dir: "tamazight-qwen-0.5b-final"
+  adapter_dir: "tamazight-qwen-0.5b-lora"
+
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  bias: "none"
+  target_modules:
+    - "q_proj"
+    - "k_proj"
+    - "v_proj"
+    - "o_proj"
+    - "gate_proj"
+    - "up_proj"
+    - "down_proj"
+  cpu_target_modules:
+    - "q_proj"
+    - "v_proj"
+
+training:
+  epochs: 3
+  batch_size: 4
+  eval_batch_size: 4
+  gradient_accumulation_steps: 4
+  learning_rate: 2.0e-4
+  weight_decay: 0.01
+  warmup_steps: 20
+  lr_scheduler_type: "cosine"
+  max_seq_length: 256
+  seed: 42
+  gradient_checkpointing: false
+  logging_steps: 10
+  save_strategy: "epoch"
+  eval_strategy: "epoch"
+  save_total_limit: 2
+  load_best_model_at_end: true
+  metric_for_best_model: "eval_loss"
+
+data:
+  train_file: "data/train.jsonl"
+  validation_file: "data/validation.jsonl"
+  test_file: "data/test.jsonl"
+  multilingual_chat_file: "data/multilingual_chat.jsonl"
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  val_split: 0.05
+  test_split: 0.05
+  max_samples: null
+
+system:
+  prompt: "You are a helpful, culturally aware, multilingual AI assistant fluent in Tamazight (Tamaziɣt s ugemmay alatini), Arabic (العربية), French (Français), and English. Always converse and answer naturally and fluently in the language used by the user."
+  languages:
+    - "tamazight"
+    - "arabic"
+    - "french"
+    - "english"
+
+inference:
+  temperature: 0.7
+  top_p: 0.9
+  repetition_penalty: 1.1
+  max_new_tokens: 150
+  device: "auto"
+
+gguf:
+  outtype: "f16"
+  quantizations:
+    - "Q8_0"
+    - "Q6_K"
+    - "Q5_K_M"
+    - "Q4_K_M"
+  output_dir: "models/gguf"

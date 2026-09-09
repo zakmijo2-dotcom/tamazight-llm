@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this project or dataset, please cite it as below."
+authors:
+- family-names: "Mijozak"
+  given-names: "Zakaria"
+title: "Tamazight Multilingual LLM (Qwen2.5-0.5B)"
+version: 0.2.0
+date-released: 2026-09-09
+url: "https://github.com/zakmijo2-dotcom/tamazight-llm"
+license: "Apache-2.0"
+keywords:
+  - tamazight
+  - kabyle
+  - berber
+  - arabic
+  - french
+  - qwen
+  - llm
+  - natural-language-processing

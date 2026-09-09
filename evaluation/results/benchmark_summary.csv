@@ -1,0 +1,2 @@
+Model,Perplexity,Loss,Average_Accuracy,arabic,culture,english,french,tamazight,translation
+test_smoke_model,325.39,5.7850,43.3%,40.0%,80.0%,60.0%,60.0%,20.0%,0.0%

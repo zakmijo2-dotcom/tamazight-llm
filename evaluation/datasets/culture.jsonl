@@ -1,0 +1,5 @@
+{"id": "cul_1", "task": "culture", "prompt": "D acu i d Imaziɣen?", "reference": "Imaziɣen d imezdaɣ ineṣliyen n Tefriqt n Ugafa.", "keywords": ["imaziɣen", "imezdaɣ", "tefriqt", "agafa", "zik"]}
+{"id": "cul_2", "task": "culture", "prompt": "Anwa i d Massinissa?", "reference": "Massinissa d agellid ameqran n Numidya.", "keywords": ["massinissa", "agellid", "numidya", "zik"]}
+{"id": "cul_3", "task": "culture", "prompt": "D acu i d Tiwizi?", "reference": "Tiwizi d lemɛawna d tdukli n taddart.", "keywords": ["tiwizi", "lemɛawna", "tdukli", "amɛawan"]}
+{"id": "cul_4", "task": "culture", "prompt": "ما هو أصل الاحتفال بعيد ينّاير؟", "reference": "ينّاير هو رأس السنة الأمازيغية الزراعية.", "keywords": ["يناير", "الأمازيغية", "سنة", "فلاحة", "أرض"]}
+{"id": "cul_5", "task": "culture", "prompt": "Qu'est-ce que le Yennayer dans la tradition berbère ?", "reference": "Yennayer est le Nouvel An amazigh fêté le 12 janvier.", "keywords": ["yennayer", "nouvel an", "amazigh", "janvier", "berbère"]}

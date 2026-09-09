@@ -1,0 +1,6 @@
+{"id": "tr_1", "task": "translation", "prompt": "Tasuqilt ar tmaziɣt n: \"Bonjour mon ami\"", "reference": "Azul a ddukkli / Azul a gma", "keywords": ["azul", "amidi", "gma"]}
+{"id": "tr_2", "task": "translation", "prompt": "Tasuqilt ar tmaziɣt n: \"Comment vas-tu ?\"", "reference": "Amek telliḍ?", "keywords": ["amek", "telliḍ"]}
+{"id": "tr_3", "task": "translation", "prompt": "Tasuqilt ar tmaziɣt n: \"Merci beaucoup\"", "reference": "Tanemmirt tameqrant", "keywords": ["tanemmirt"]}
+{"id": "tr_4", "task": "translation", "prompt": "Tasuqilt ar tmaziɣt n: \"Au revoir\"", "reference": "Ar tufat", "keywords": ["ar tufat", "ar timlilit", "lahna"]}
+{"id": "tr_5", "task": "translation", "prompt": "Tasuqilt ar tmaziɣt n: \"Je ne sais pas\"", "reference": "Ur ssineɣ ara / Ur ẓriɣ ara", "keywords": ["ur ssineɣ", "ur ẓriɣ"]}
+{"id": "tr_6", "task": "translation", "prompt": "Tasuqilt ar tmaziɣt n: \"Bonne nuit\"", "reference": "Iḍ ameggaz / Lahna n yiḍ", "keywords": ["iḍ ameggaz", "lahna", "amenzu"]}

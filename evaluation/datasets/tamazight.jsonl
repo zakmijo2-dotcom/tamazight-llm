@@ -1,0 +1,5 @@
+{"id": "ber_1", "task": "conversation", "prompt": "Azul fell-awen! Amek telliḍ?", "reference": "Azul! Labas, tanemmirt.", "keywords": ["azul", "labas", "tanemmirt", "telliḍ"]}
+{"id": "ber_2", "task": "vocabulary", "prompt": "Amek i qqaren 'bonjour' s tmaziɣt?", "reference": "Qqaren-as 'Azul'.", "keywords": ["azul"]}
+{"id": "ber_3", "task": "vocabulary", "prompt": "Amek i qqaren 'merci' s tmaziɣt?", "reference": "Qqaren-as 'Tanemmirt'.", "keywords": ["tanemmirt"]}
+{"id": "ber_4", "task": "conversation", "prompt": "Ar tufat!", "reference": "Ar tufat d timlilit igerzen!", "keywords": ["ar tufat", "ar timlilit", "lahna"]}
+{"id": "ber_5", "task": "grammar", "prompt": "D acu i d amyag deg tefyirt: 'Yura wergaz tabrat'?", "reference": "Amyag d 'Yura'.", "keywords": ["yura", "amyag"]}
