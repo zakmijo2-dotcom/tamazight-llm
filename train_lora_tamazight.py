@@ -9,8 +9,8 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 torch.set_num_threads(8)
 
 model_name = "HuggingFaceTB/SmolLM2-135M-Instruct"
-data_path = "/data/data/com.termux/files/home/tamazight_llm/tamazight_train.jsonl"
-output_dir = "/data/data/com.termux/files/home/tamazight_llm/tamazight_smollm_finetuned"
+data_path = "tamazight_train.jsonl" if os.path.exists("tamazight_train.jsonl") else "/data/data/com.termux/files/home/tamazight_llm/tamazight_train.jsonl"
+output_dir = "tamazight_smollm_finetuned" if not os.path.exists("/data/data/com.termux") else "/data/data/com.termux/files/home/tamazight_llm/tamazight_smollm_finetuned"
 os.makedirs(output_dir, exist_ok=True)
 
 class LoRALinear(nn.Module):

@@ -1,27 +1,63 @@
-# Tamazight LLM (SmolLM2-135M) ⵣ
+# Tamazight Multilingual LLM (Tamaziɣt · العربية · Français · English) ⵣ
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/zakmijo2-dotcom/tamazight-llm)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-مشروع تدريب وتطوير نموذج ذكاء اصطناعي خفيف ومفتوح المصدر للغة **الأمازيغية بالحرف اللاتيني (Tamaziɣt s ugemmay alatini)**، مصمم ليعمل بسرعة فائقة على الأجهزة المحمولة عبر **Termux** ومناسب للتدريب الكامل في **GitHub Codespaces**.
+نموذج ذكاء اصطناعي محادثي حقيقي متعدد اللغات (Multilingual Conversational LLM) يتقن التحاور والإجابة بطبيعية بأربع لغات رئيسية:
+- **الأمازيغية بالحرف اللاتيني (Tamaziɣt s ugemmay alatini)**
+- **العربية الفصحى (العربية)**
+- **الفرنسية (Français)**
+- **الإنجليزية (English)**
 
----
+مصمم ليعمل بسرعة عالية على الأجهزة المحمولة عبر **Termux** بصيغة GGUF، وعلى معالجات **Codespaces** وكروت الشاشة المجانية في **Google Colab**.
 
-## 🚀 التشغيل المباشر في GitHub Codespaces
+## 🚀 البدء السريع (Quickstart)
 
-اضغط على الزر أعلاه أو اتبع الخطوات التالية لمواصلة التدريب السريع على معالجات وسيرفرات GitHub السحابية (مع دعم GPU/CUDA مجاناً):
-
+### 1. تثبيت المتطلبات (Environment Setup)
 ```bash
-# 1. تثبيت المتطلبات (يتم تلقائياً عبر .devcontainer)
 pip install -r requirements.txt
-
-# 2. بدء التدريب الكامل على معالج الرسوميات أو المعالج السحابي
-python3 train_codespaces.py --epochs 3 --batch-size 8 --lr 2e-4
-
-# 3. الرفع مباشرة على Hugging Face بعد انتهاء التدريب
-python3 upload_to_hf.py --repo-id "YOUR_USERNAME/tamazight-smollm-135m" --token "hf_YOUR_TOKEN"
 ```
 
+### 2. تجربة المحادثة والاستدلال (Inference & Chat)
+يمكنك تجربة النموذج مباشرة (سواء النموذج الأساسي أو بعد التدريب):
+```bash
+# وضع المحادثة التفاعلية في الطرفية
+python3 chat.py
+
+# أو استعلام فردي مباشر
+python3 infer.py --prompt "Azul fell-awen! Amek telliḍ?"
+
+# أو الترجمة الفورية من الفرنسية إلى الأمازيغية
+python3 infer.py --translate "Bonjour mon ami, comment vas-tu ?"
+```
+
+### 3. تدريب النموذج (Model Training & Fine-Tuning)
+```bash
+# تدريب قياسي مع تقسيم التحقق وحساب الخسارة على ردود المساعد فقط (SFT Masking)
+python3 train.py --epochs 3 --batch-size 8 --lr 2e-4
+
+# تدريب سريع لاختبار سير العمل (مثال 500 عينة):
+python3 train.py --max-samples 500 --epochs 1 --batch-size 4
+```
+
+### 4. تقييم أداء النموذج (Evaluation & Benchmarks)
+```bash
+python3 evaluate.py --model-path tamazight-smollm-135m-final
+```
+يقوم بحساب:
+- الحيرة اللغوية (Perplexity - PPL) على نصوص أمازيغية لم يرها النموذج.
+- دقة الترجمة على حزمة اختبار قياسية (French -> Tamazight).
+- جودة المحادثة والأمثال الثقافية.
+
+### 5. تصدير النموذج للهواتف بصيغة GGUF (Mobile Export)
+```bash
+python3 export_gguf.py --model-dir tamazight-smollm-135m-final --outtype f16
+```
+
+### 6. الرفع على Hugging Face Hub
+```bash
+python3 upload_to_hf.py --repo-id "YOUR_USERNAME/tamazight-smollm-135m" --token "hf_YOUR_TOKEN"
+```
 ---
 
 ## 📊 بيانات التدريب (Training Data)
@@ -39,18 +75,23 @@ python3 upload_to_hf.py --repo-id "YOUR_USERNAME/tamazight-smollm-135m" --token 
 
 ```text
 ├── .devcontainer/
-│   └── devcontainer.json        # تهيئة بيئة Codespaces السحابية تلقائياً
-├── data/
+│   └── devcontainer.json        # تهيئة بيئة Codespaces السحابية
+├── data/                        # البيانات المعجمية الأصلية
 │   ├── kabyle_french.tsv        # الجمل المترجمة الأصلية
 │   ├── proverbs.tsv             # الأمثال الأمازيغية
 │   ├── idioms.tsv               # التعابير
-│   └── ...
+│   ├── riddles.tsv              # الألغاز
+│   └── examples.tsv             # الأمثلة السياقية
 ├── tamazight_train.jsonl        # ملف التدريب المجهز الكامل (126,929 سطر)
-├── train_codespaces.py          # سكربت التدريب الاحترافي في Codespaces
-├── train_lora_tamazight.py      # سكربت تدريب LoRA المخصص لـ Termux
+├── train.py                     # سكربت التدريب الشامل والمتقدم
+├── train_codespaces.py          # خط تدريب Codespaces والحوسبة السحابية
+├── infer.py                     # واجهة المحادثة والاستدلال والترجمة
+├── chat.py                      # اختصار لتشغيل المحادثة التفاعلية
+├── evaluate.py                  # حزمة تقييم الحيرة اللغوية والترجمة (Benchmarking)
+├── export_gguf.py               # تحويل النموذج إلى صيغة GGUF لتشغيله على الهواتف
 ├── upload_to_hf.py              # سكربت الرفع التلقائي على Hugging Face
 ├── requirements.txt             # متطلبات بايثون
-└── README.md                    # دليل الاستخدام
+└── README.md                    # دليل الاستخدام الشامل
 ```
 
 ---

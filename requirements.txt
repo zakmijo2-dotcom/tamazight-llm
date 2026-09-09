@@ -7,3 +7,5 @@ safetensors>=0.4.5
 huggingface_hub>=0.24.0
 tqdm>=4.66.0
 bitsandbytes>=0.43.0; sys_platform != 'darwin' and platform_machine != 'aarch64'
+gguf>=0.10.0
+sentencepiece>=0.2.0
